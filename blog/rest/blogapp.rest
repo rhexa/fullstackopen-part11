@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:3003
+@users = {{baseUrl}}/api/users
+@blogs = {{baseUrl}}/api/blogs
+@blogId = 672124ac335756fb1e15d738
+
+###
+# Create user
+POST {{users}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "mluukkai",
+  "name": "Matti Luukkainen",
+  "password": "salainen"
+}
+
+###
+# Get users
+GET {{users}} HTTP/1.1
+
+###
+# Get blogs
+GET {{blogs}} HTTP/1.1
+
+###
+# Get comments of a blog
+GET {{blogs}}/{{blogId}}/comments
+
+###
+# Add a comment of a blog
+POST {{blogs}}/{{blogId}}/comments
+Content-Type: application/json
+
+{
+  "comment": "What a fantastic blog"
+}
+
+###
+# Delete all comments of a blog
+DELETE {{blogs}}/{{blogId}}/comments

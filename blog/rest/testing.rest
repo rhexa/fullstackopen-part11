@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:3003/api
+@testing = {{baseUrl}}/testing
+
+
+###
+# reset
+POST {{baseUrl}}/testing/reset

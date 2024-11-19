@@ -1,0 +1,17 @@
+{
+  "name": "e2e-test-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --project=chromium",
+    "test:report": "playwright show-report"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^9.1.0",
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.2"
+  }
+}
