@@ -71,7 +71,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist
-          path: ../bloglist-frontend/
+          path: ${{ github.workspace }}/bloglist-frontend/
       - name: Install playwright dependencies
         run: |
           npx playwright install --with-deps
