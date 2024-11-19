@@ -76,7 +76,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist
-          path: ${{ github.workspace }}/bloglist-frontend/dist
+          path: ${{ github.workspace }}/blog/dist
       - name: Install playwright dependencies
         run: |
           npx playwright install --with-deps
@@ -91,6 +91,9 @@ jobs:
   deploy:
     needs: e2e-test
     runs-on: ubuntu-latest
+    environment:
+      name: fly.io
+      url: ${{ steps.deploy.outputs.url }}
     outputs:
       url: ${{ steps.deploy.outputs.url }}
     steps:
