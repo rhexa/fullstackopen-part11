@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-
+env:
+  SECRET: ${{ secrets.SECRET }}
+  DB_STRING: ${{ secrets.DB_STRING }}
+  
 jobs:
   build-client:
     defaults:
