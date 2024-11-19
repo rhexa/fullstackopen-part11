@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
 env:
   SECRET: ${{ secrets.SECRET }}
   DB_STRING: ${{ secrets.DB_STRING }}
@@ -90,6 +94,7 @@ jobs:
 
   deploy:
     needs: e2e-test
+    if: github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
     environment:
       name: fly.io
