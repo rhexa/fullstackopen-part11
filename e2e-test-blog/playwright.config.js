@@ -76,5 +76,6 @@ module.exports = defineConfig({
     cwd: '../blog',
     url: 'http://localhost:3003',
     reuseExistingServer: !process.env.CI,
+    timeout: 120 * 1000,
   },
 })
