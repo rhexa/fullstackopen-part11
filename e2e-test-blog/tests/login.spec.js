@@ -56,19 +56,17 @@ const isSorted = (obj) => {
 describe('Blog app', () => {
   beforeEach(async ({ page, request }) => {
     // empty the db here
-    const response = await request.post(
-      'http://localhost:3003/api/testing/reset'
-    )
+    const response = await request.post('/api/testing/reset')
     expect(response.status()).toBe(204)
 
     // create a user for the backend here
-    const response2 = await request.post('http://localhost:3003/api/users', {
+    const response2 = await request.post('/api/users', {
       data: testUser,
     })
     expect(response2.status()).toBe(201)
 
     // go to the login page
-    await page.goto('http://localhost:5173')
+    await page.goto('/')
   })
 
   test('Login form is shown', async ({ page }) => {
@@ -183,7 +181,7 @@ describe('Blog app', () => {
         password: 'testpassword2',
       }
 
-      await request.post('http://localhost:3003/api/users', {
+      await request.post('/api/users', {
         data: testUser2,
       })
 
