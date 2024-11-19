@@ -20,7 +20,7 @@ app.use(cors())
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
-app.use(express.static('../bloglist-frontend/dist'))
+app.use(express.static('dist'))
 
 app.use(require('./controllers'))
 
